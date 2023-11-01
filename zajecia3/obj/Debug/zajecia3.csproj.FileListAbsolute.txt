@@ -18,3 +18,13 @@ C:\STUDIA\AISD WARUN\AiSD\zajecia3\zajecia3\zajecia3\obj\Debug\zajecia3.csproj.G
 C:\STUDIA\AISD WARUN\AiSD\zajecia3\zajecia3\zajecia3\obj\Debug\zajecia3.csproj.CoreCompileInputs.cache
 C:\STUDIA\AISD WARUN\AiSD\zajecia3\zajecia3\zajecia3\obj\Debug\zajecia3.exe
 C:\STUDIA\AISD WARUN\AiSD\zajecia3\zajecia3\zajecia3\obj\Debug\zajecia3.pdb
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\bin\Debug\zajecia3.exe.config
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\bin\Debug\zajecia3.exe
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\bin\Debug\zajecia3.pdb
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\obj\Debug\zajecia3.csproj.AssemblyReference.cache
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\obj\Debug\zajecia3.Form1.resources
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\obj\Debug\zajecia3.Properties.Resources.resources
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\obj\Debug\zajecia3.csproj.GenerateResource.cache
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\obj\Debug\zajecia3.csproj.CoreCompileInputs.cache
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\obj\Debug\zajecia3.exe
+C:\STUDIA\AISD WARUN\AiSD\Projekt\Aisd_projekt\zajecia3\obj\Debug\zajecia3.pdb
