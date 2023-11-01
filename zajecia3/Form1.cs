@@ -28,8 +28,7 @@ namespace zajecia3
         {
             string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
             string wygenerowanyCiąg = GenerujCiąg(tekst); // Wywołujemy funkcję do generowania ciągu
-            var ciag2 = Convert(wygenerowanyCiąg);
-            MessageBox.Show("Wygenerowany ciąg: " + ciag2); // Wyświetlamy wygenerowany ciąg w MessageBoxie
+            MessageBox.Show("Wygenerowany ciąg: " + wygenerowanyCiąg); // Wyświetlamy wygenerowany ciąg w MessageBoxie
         }
 
         private string GenerujCiąg(string tekst)
@@ -47,7 +46,14 @@ namespace zajecia3
             var liczby = new int[liczbyS.Length];
             for (int i = 0; i < liczbyS.Length; i++)
             {
-                liczby[i] = int.Parse(liczbyS[i]);
+                if (int.TryParse(liczbyS[i], out int parsedNumber))
+                {
+                    liczby[i] = parsedNumber;
+                }
+                else
+                {
+                    throw new ArgumentException("Nieprawidłowy format ciągu wejściowego.");
+                }
             }
             return liczby;
         }
