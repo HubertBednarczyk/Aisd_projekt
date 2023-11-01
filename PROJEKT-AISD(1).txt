@@ -1,0 +1,14 @@
+1. textbox (podać liczby do sortowania po naciśnieciu guzika posortuje sie i wyświetli sie w numer 2)
+2. textbox albo label
+
+5.jak jest chechbox włączony to albo lewa albo prawa działa
+
+6. Up/Down (max = 2 mln tu wstawić)
+7. guzik generuj
+3. czas(etykieta) 4.label(czas wykonania)
+
+8.sort bubble
+9.sort selection
+10.sort insert
+11.sort merge
+12.sort quicksort

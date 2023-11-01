@@ -28,7 +28,8 @@ namespace zajecia3
         {
             string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
             string wygenerowanyCiąg = GenerujCiąg(tekst); // Wywołujemy funkcję do generowania ciągu
-            MessageBox.Show("Wygenerowany ciąg: " + wygenerowanyCiąg); // Wyświetlamy wygenerowany ciąg w MessageBoxie
+            var ciag2 = Convert(wygenerowanyCiąg);
+            MessageBox.Show("Wygenerowany ciąg: " + ciag2); // Wyświetlamy wygenerowany ciąg w MessageBoxie
         }
 
         private string GenerujCiąg(string tekst)
@@ -36,11 +37,11 @@ namespace zajecia3
             // Tutaj możesz wpisać dowolny kod do generowania ciągu na podstawie tekstu
             // W tym przykładzie zwracam tekst odwrócony
             char[] charArray = tekst.ToCharArray();
-            Array.Reverse(charArray);
+            //Array.Reverse(charArray);
             return new string(charArray);
         }
 
-        int[] Convert(string napis)
+        private int[] Convert(string napis)
         {
             var liczbyS = napis.Trim().Split(' ');
             var liczby = new int[liczbyS.Length];
@@ -51,12 +52,16 @@ namespace zajecia3
             return liczby;
         }
 
+
+
         private void button2_Click(object sender, EventArgs e)
         {
+            string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = BubbleSort(tekst); // Sortowanie bąbelkowe
-                MessageBox.Show("Posortowany ciąg (Bubble Sort): " + wynik);
+                string wynik = BubbleSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
             else
             {
@@ -66,32 +71,90 @@ namespace zajecia3
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string wynik = SelectionSort(tekst); // Sortowanie przez wybór
-            MessageBox.Show("Posortowany ciąg (Selection Sort): " + wynik);
+            string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+
+            if (!string.IsNullOrEmpty(tekst))
+            {
+                string wynik = SelectionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+            }
+            else
+            {
+                MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string wynik = InsertionSort(tekst); // Sortowanie przez wstawianie
-            MessageBox.Show("Posortowany ciąg (Insertion Sort): " + wynik);
+            string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+
+            if (!string.IsNullOrEmpty(tekst))
+            {
+                string wynik = InsertionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+            }
+            else
+            {
+                MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string wynik = MergeSort(tekst); // Sortowanie przez scalanie
-            MessageBox.Show("Posortowany ciąg (Merge Sort): " + wynik);
+            string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+
+            if (!string.IsNullOrEmpty(tekst))
+            {
+                string wynik = MergeSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+            }
+            else
+            {
+                MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            string wynik = QuickSort(tekst); // Sortowanie szybkie
-            MessageBox.Show("Posortowany ciąg (Quick Sort): " + wynik);
+            string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+
+            if (!string.IsNullOrEmpty(tekst))
+            {
+                string wynik = QuickSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+            }
+            else
+            {
+                MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
         }
 
 
         // Implementacja algorytmów
 
         private string BubbleSort(string tekst)
+        {
+            int[] liczby = Convert(tekst);
+
+            bool swapped;
+            do
+            {
+                swapped = false;
+                for (int i = 1; i < liczby.Length; i++)
+                {
+                    if (liczby[i - 1] > liczby[i])
+                    {
+                        int temp = liczby[i - 1];
+                        liczby[i - 1] = liczby[i];
+                        liczby[i] = temp;
+                        swapped = true;
+                    }
+                }
+            } while (swapped);
+
+            return string.Join(" ", liczby);
+        }
+/*        private string BubbleSort2(string tekst)
         {
             char[] charArray = tekst.ToCharArray();
             bool swapped;
@@ -111,113 +174,146 @@ namespace zajecia3
             } while (swapped);
 
             return new string(charArray);
-        }
+        }*/
+
+
+
+
 
         private string SelectionSort(string tekst)
         {
-            char[] charArray = tekst.ToCharArray();
-            for (int i = 0; i < charArray.Length - 1; i++)
+            int[] liczby = Convert(tekst);
+            for (int i = 0; i < liczby.Length - 1; i++)
             {
                 int minIndex = i;
-                for (int j = i + 1; j < charArray.Length; j++)
+                for (int j = i + 1; j < liczby.Length; j++)
                 {
-                    if (charArray[j] < charArray[minIndex])
+                    if (liczby[j] < liczby[minIndex])
                     {
                         minIndex = j;
                     }
                 }
-                char temp = charArray[i];
-                charArray[i] = charArray[minIndex];
-                charArray[minIndex] = temp;
+                int temp = liczby[i];
+                liczby[i] = liczby[minIndex];
+                liczby[minIndex] = temp;
             }
 
-            return new string(charArray);
+            return string.Join(" ", liczby);
         }
 
         private string InsertionSort(string tekst)
         {
-            char[] charArray = tekst.ToCharArray();
-            for (int i = 1; i < charArray.Length; i++)
+            int[] liczby = Convert(tekst);
+            for (int i = 1; i < liczby.Length; i++)
             {
-                char key = charArray[i];
+                int key = liczby[i];
                 int j = i - 1;
-                while (j >= 0 && charArray[j] > key)
+                while (j >= 0 && liczby[j] > key)
                 {
-                    charArray[j + 1] = charArray[j];
+                    liczby[j + 1] = liczby[j];
                     j = j - 1;
                 }
-                charArray[j + 1] = key;
+                liczby[j + 1] = key;
             }
 
-            return new string(charArray);
+            return string.Join(" ", liczby);
         }
 
         private string MergeSort(string tekst)
         {
-            if (tekst.Length <= 1)
+            int[] liczby = Convert(tekst);
+
+            if (liczby.Length <= 1)
             {
-                return tekst;
+                return string.Join(" ", liczby);
             }
 
-            int middle = tekst.Length / 2;
-            string left = tekst.Substring(0, middle);
-            string right = tekst.Substring(middle);
+            int middle = liczby.Length / 2;
+            int[] left = new int[middle];
+            int[] right = new int[liczby.Length - middle];
 
-            left = MergeSort(left);
-            right = MergeSort(right);
+            for (int i = 0; i < middle; i++)
+            {
+                left[i] = liczby[i];
+            }
 
-            return Merge(left, right);
+            for (int i = middle; i < liczby.Length; i++)
+            {
+                right[i - middle] = liczby[i];
+            }
+
+            left = MergeSort(string.Join(" ", left)).Split(' ').Select(int.Parse).ToArray();
+            right = MergeSort(string.Join(" ", right)).Split(' ').Select(int.Parse).ToArray();
+
+            return string.Join(" ", Merge(left, right));
         }
 
-        private string Merge(string left, string right)
+        private int[] Merge(int[] left, int[] right)
         {
-            string result = "";
-            while (left.Length > 0 && right.Length > 0)
+            List<int> result = new List<int>();
+
+            int i = 0, j = 0;
+
+            while (i < left.Length && j < right.Length)
             {
-                if (left[0] < right[0])
+                if (left[i] < right[j])
                 {
-                    result += left[0];
-                    left = left.Substring(1);
+                    result.Add(left[i]);
+                    i++;
                 }
                 else
                 {
-                    result += right[0];
-                    right = right.Substring(1);
+                    result.Add(right[j]);
+                    j++;
                 }
             }
 
-            result += left + right;
-            return result;
+            while (i < left.Length)
+            {
+                result.Add(left[i]);
+                i++;
+            }
+
+            while (j < right.Length)
+            {
+                result.Add(right[j]);
+                j++;
+            }
+
+            return result.ToArray();
         }
+
 
         private string QuickSort(string tekst)
         {
-            if (tekst.Length <= 1)
+            int[] liczby = Convert(tekst);
+
+            if (liczby.Length <= 1)
             {
-                return tekst;
+                return string.Join(" ", liczby);
             }
 
-            char pivot = tekst[tekst.Length / 2];
-            string left = "";
-            string right = "";
+            int pivotIndex = liczby.Length / 2;
+            int pivotValue = liczby[pivotIndex];
 
-            for (int i = 0; i < tekst.Length; i++)
+            List<int> less = new List<int>();
+            List<int> greater = new List<int>();
+
+            for (int i = 0; i < liczby.Length; i++)
             {
-                if (i == tekst.Length / 2)
-                {
+                if (i == pivotIndex)
                     continue;
-                }
-                if (tekst[i] < pivot)
-                {
-                    left += tekst[i];
-                }
+
+                if (liczby[i] <= pivotValue)
+                    less.Add(liczby[i]);
                 else
-                {
-                    right += tekst[i];
-                }
+                    greater.Add(liczby[i]);
             }
 
-            return QuickSort(left) + pivot + QuickSort(right);
+            return string.Join(" ", QuickSort(string.Join(" ", less)).Split(' ').Select(int.Parse).ToArray()) +
+                   " " + pivotValue +
+                   " " + string.Join(" ", QuickSort(string.Join(" ", greater)).Split(' ').Select(int.Parse).ToArray());
         }
+
     }
 }
