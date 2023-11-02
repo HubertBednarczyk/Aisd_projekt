@@ -34,7 +34,6 @@ namespace zajecia3
         private string GenerujCiąg(string tekst)
         {
             // Tutaj możesz wpisać dowolny kod do generowania ciągu na podstawie tekstu
-            // W tym przykładzie zwracam tekst odwrócony
             char[] charArray = tekst.ToCharArray();
             //Array.Reverse(charArray);
             return new string(charArray);
@@ -81,7 +80,7 @@ namespace zajecia3
 
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = SelectionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                string wynik = SelectionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku SelectionSort)
                 textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
             else
@@ -96,7 +95,7 @@ namespace zajecia3
 
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = InsertionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                string wynik = InsertionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku InsertionSort)
                 textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
             else
@@ -111,7 +110,7 @@ namespace zajecia3
 
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = MergeSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                string wynik = MergeSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku MergeSort)
                 textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
             else
@@ -126,7 +125,7 @@ namespace zajecia3
 
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = QuickSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                string wynik = QuickSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku QuickSort)
                 textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
             else
