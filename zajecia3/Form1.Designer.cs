@@ -77,9 +77,9 @@
             this.Czas.AutoSize = true;
             this.Czas.Location = new System.Drawing.Point(512, 267);
             this.Czas.Name = "Czas";
-            this.Czas.Size = new System.Drawing.Size(35, 13);
+            this.Czas.Size = new System.Drawing.Size(52, 13);
             this.Czas.TabIndex = 6;
-            this.Czas.Text = "label2";
+            this.Czas.Text = "Czas [ms]";
             // 
             // button1
             // 
@@ -160,11 +160,10 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(577, 260);
+            this.textBox3.Location = new System.Drawing.Point(582, 264);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(138, 20);
+            this.textBox3.Size = new System.Drawing.Size(258, 20);
             this.textBox3.TabIndex = 17;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // Form1
             // 
