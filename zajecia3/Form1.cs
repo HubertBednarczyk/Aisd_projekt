@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -320,5 +322,26 @@ namespace zajecia3
                    " " + string.Join(" ", QuickSort(string.Join(" ", greater)).Split(' ').Select(int.Parse).ToArray());
         }
 
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+
+            if (!string.IsNullOrEmpty(tekst))
+            {
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
+                string wynik = BubbleSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+
+                stopwatch.Stop();
+                long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+
+                textBox3.Text = "Czas sortowania (ms): " + elapsedMilliseconds;
+            }
+            else
+            {
+                MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
+        }
     }
 }

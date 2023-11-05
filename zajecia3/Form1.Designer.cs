@@ -32,8 +32,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Czas = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SortBubble = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,23 +72,14 @@
             this.numericUpDown1.Size = new System.Drawing.Size(182, 20);
             this.numericUpDown1.TabIndex = 4;
             // 
-            // label2
+            // Czas
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(512, 267);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(565, 267);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "label3";
+            this.Czas.AutoSize = true;
+            this.Czas.Location = new System.Drawing.Point(512, 267);
+            this.Czas.Name = "Czas";
+            this.Czas.Size = new System.Drawing.Size(35, 13);
+            this.Czas.TabIndex = 6;
+            this.Czas.Text = "label2";
             // 
             // button1
             // 
@@ -160,12 +151,20 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::zajecia3.Properties.Resources.profilowe;
-            this.pictureBox1.Location = new System.Drawing.Point(57, -7);
+            this.pictureBox1.Image = global::zajecia3.Properties.Resources.asd;
+            this.pictureBox1.Location = new System.Drawing.Point(30, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1086, 548);
+            this.pictureBox1.Size = new System.Drawing.Size(1103, 558);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(577, 260);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(138, 20);
+            this.textBox3.TabIndex = 17;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // Form1
             // 
@@ -174,6 +173,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1085, 541);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -181,8 +181,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.SortBubble);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Czas);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox1);
@@ -201,8 +200,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Czas;
         private System.Windows.Forms.Button button1;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Button SortBubble;
@@ -212,6 +210,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 
