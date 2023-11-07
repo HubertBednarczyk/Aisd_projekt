@@ -10,28 +10,73 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace zajecia3
 {
     public partial class Form1 : Form
     {
         private string tekst;
+        private Random random = new Random();
         public Form1()
         {
             InitializeComponent();
         }
 
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            int count = (int)numericUpDown1.Value;
+
+            if (checkBox1.Checked)
+            {
+                int randomValue = random.Next(0, 2000000);
+                numericUpDown1.Value = randomValue;
+            }
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (checkBox1.Checked)
+            {
+                numericUpDown1.Enabled = true;
+                textBox4.Visible = true;
+            }
+            else if (!checkBox1.Checked) // Dodaliśmy warunek, aby sprawdzić, czy checkBox1 jest niezaznaczony
+            {
+                numericUpDown1.Enabled = false;
+                textBox4.Visible = false;
+            }
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
-            string wygenerowanyCiąg = GenerujCiąg(tekst); // Wywołujemy funkcję do generowania ciągu
-            MessageBox.Show("Wygenerowany ciąg: " + wygenerowanyCiąg); // Wyświetlamy wygenerowany ciąg w MessageBoxie
+            int count = (int)numericUpDown1.Value;
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < count; i++)
+            {
+                int randomValue = random.Next(0, 2000001);
+                sb.Append(randomValue);
+
+                if (i != count - 1)
+                {
+                    sb.Append(" ");
+                }
+            }
+
+            if (!checkBox1.Checked)
+            {
+                textBox1.Text = sb.ToString();
+            }
+            else
+            {
+                textBox4.Text = sb.ToString();
+            }
         }
+
 
         private string GenerujCiąg(string tekst)
         {
@@ -51,10 +96,6 @@ namespace zajecia3
                 {
                     liczby[i] = parsedNumber;
                 }
-                else
-                {
-                    throw new ArgumentException("Nieprawidłowy format ciągu wejściowego.");
-                }
             }
             return liczby;
         }
@@ -64,84 +105,171 @@ namespace zajecia3
         private void button2_Click(object sender, EventArgs e)
         {
             string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+            string wynik = "";
 
             if (!string.IsNullOrEmpty(tekst))
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
 
-                string wynik = BubbleSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                wynik = BubbleSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
                 textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
 
                 stopwatch.Stop();
                 long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
-                textBox3.Text = " " + elapsedMilliseconds;
+                double elapsedSeconds = elapsedMilliseconds / 1000.0; // Konwersja na sekundy
+
+                textBox3.Text = " " + elapsedSeconds.ToString("F2") + " s"; // Wyświetlamy czas z dwoma miejscami po przecinku
             }
             else
             {
                 MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
+
+            if (checkBox1.Checked)
+            {
+                wynik = BubbleSort(textBox4.Text); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku BubbleSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+            string wynik = "";
 
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = SelectionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku SelectionSort)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
+                wynik = SelectionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku SelectionSort)
                 textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+
+                stopwatch.Stop();
+                long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+                double elapsedSeconds = elapsedMilliseconds / 1000.0; // Konwersja na sekundy
+
+                textBox3.Text = " " + elapsedSeconds.ToString("F2") + " s"; // Wyświetlamy czas z dwoma miejscami po przecinku
             }
             else
             {
                 MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
+
+            if (checkBox1.Checked)
+            {
+                wynik = SelectionSort(textBox4.Text); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku SelectionSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+            string wynik = "";
 
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = InsertionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku InsertionSort)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
+                wynik = InsertionSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku InsertionSort)
                 textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+
+                stopwatch.Stop();
+                long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+                double elapsedSeconds = elapsedMilliseconds / 1000.0; // Konwersja na sekundy
+
+                textBox3.Text = " " + elapsedSeconds.ToString("F2") + " s"; // Wyświetlamy czas z dwoma miejscami po przecinku
             }
             else
             {
                 MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
+
+            if (checkBox1.Checked)
+            {
+                wynik = InsertionSort(textBox4.Text); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku InsertionSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+            string wynik = "";
 
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = MergeSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku MergeSort)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
+                wynik = MergeSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku MergeSort)
                 textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+
+                stopwatch.Stop();
+                long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+                double elapsedSeconds = elapsedMilliseconds / 1000.0; // Konwersja na sekundy
+
+                textBox3.Text = " " + elapsedSeconds.ToString("F2") + " s"; // Wyświetlamy czas z dwoma miejscami po przecinku
             }
             else
             {
                 MessageBox.Show("Wprowadź tekst przed sortowaniem.");
+            }
+
+            if (checkBox1.Checked)
+            {
+                wynik = MergeSort(textBox4.Text); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku MergeSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             string tekst = textBox1.Text; // Pobieramy tekst z TextBoxa
+            string wynik = "";
 
             if (!string.IsNullOrEmpty(tekst))
             {
-                string wynik = QuickSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku QuickSort)
-                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+                if (IsValidInput(tekst)) // Dodajemy walidację
+                {
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+
+                    wynik = QuickSort(tekst); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku QuickSort)
+                    textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+
+                    stopwatch.Stop();
+                    long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+                    double elapsedSeconds = elapsedMilliseconds / 1000.0; // Konwersja na sekundy
+
+                    textBox3.Text = " " + elapsedSeconds.ToString("F2") + " s"; // Wyświetlamy czas z dwoma miejscami po przecinku
+                }
+                else
+                {
+                    MessageBox.Show("Nieprawidłowy format ciągu wejściowego.");
+                }
             }
             else
             {
                 MessageBox.Show("Wprowadź tekst przed sortowaniem.");
             }
+
+            if (checkBox1.Checked)
+            {
+                wynik = QuickSort(textBox4.Text); // Tutaj używamy odpowiedniego algorytmu sortowania (w tym przypadku QuickSort)
+                textBox2.Text = string.Join(" ", wynik); // Dodajemy spacje między liczbami
+            }
         }
+
+        private bool IsValidInput(string input)
+        {
+            return input.Split(' ').All(num => int.TryParse(num, out _));
+        }
+
+
 
 
         // Implementacja algorytmów
@@ -328,6 +456,7 @@ namespace zajecia3
                    " " + pivotValue +
                    " " + string.Join(" ", QuickSort(string.Join(" ", greater)).Split(' ').Select(int.Parse).ToArray());
         }
+
 
     }
 }

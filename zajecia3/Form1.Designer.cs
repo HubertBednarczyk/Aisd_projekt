@@ -43,6 +43,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -51,13 +52,13 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(94, 107);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
+            this.textBox1.Size = new System.Drawing.Size(185, 20);
             this.textBox1.TabIndex = 0;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(308, 108);
+            this.checkBox1.Location = new System.Drawing.Point(332, 107);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 2;
@@ -67,19 +68,20 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(470, 108);
+            this.numericUpDown1.Location = new System.Drawing.Point(470, 196);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(182, 20);
             this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // Czas
             // 
             this.Czas.AutoSize = true;
             this.Czas.Location = new System.Drawing.Point(512, 267);
             this.Czas.Name = "Czas";
-            this.Czas.Size = new System.Drawing.Size(52, 13);
+            this.Czas.Size = new System.Drawing.Size(44, 13);
             this.Czas.TabIndex = 6;
-            this.Czas.Text = "Czas [ms]";
+            this.Czas.Text = "Czas [s]";
             // 
             // button1
             // 
@@ -152,9 +154,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::zajecia3.Properties.Resources.asd;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(-3, -3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1103, 558);
+            this.pictureBox1.Size = new System.Drawing.Size(1090, 545);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
@@ -165,6 +167,13 @@
             this.textBox3.Size = new System.Drawing.Size(258, 20);
             this.textBox3.TabIndex = 17;
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(467, 104);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(185, 20);
+            this.textBox4.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,6 +181,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1085, 541);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button6);
@@ -210,6 +220,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 
